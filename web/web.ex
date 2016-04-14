@@ -36,6 +36,8 @@ defmodule ElugspMilmetrics.Web do
 
       import ElugspMilmetrics.Router.Helpers
       import ElugspMilmetrics.Gettext
+
+      plug ElugspMilmetrics.Plug.Metrics
     end
   end
 
