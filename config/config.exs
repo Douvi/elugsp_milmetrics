@@ -29,7 +29,7 @@ config :phoenix, :generators,
   binary_id: false
 
 config :elixometer, reporter: :exometer_report_influxdb,
-                    update_frequency: 5_000,
+                    update_frequency: 500,
                     env: Mix.env,
                     metric_prefix: "lukla"
 

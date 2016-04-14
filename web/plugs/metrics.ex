@@ -13,17 +13,11 @@ defmodule ElugspMilmetrics.Plug.Metrics do
     register_before_send conn, fn conn ->
       request_duration = elapsed_time(req_start_time, @unit)
 
-      if metrics_enabled? do
-        update_counter("request_count", 1)
-        update_histogram(metric_name(conn), request_duration)
-      end
+      update_counter("request_count", 1)
+      update_gauge(metric_name(conn), request_duration)
 
       conn
     end
-  end
-
-  defp metrics_enabled? do
-    Application.get_env(:lukla_web, :elixometer)[:enabled]
   end
 
   defp elapsed_time(req_start_time, unit) do

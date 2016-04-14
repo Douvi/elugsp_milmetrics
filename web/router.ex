@@ -17,10 +17,9 @@ defmodule ElugspMilmetrics.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-  end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ElugspMilmetrics do
-  #   pipe_through :api
-  # end
+    get "/milhappy", PageController, :milhappy
+    get "/milsad", PageController, :milsad
+    get "/mil_so_sad", PageController, :mil_so_sad
+  end
 end
