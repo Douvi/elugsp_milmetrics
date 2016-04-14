@@ -16,7 +16,7 @@ defmodule ElugspMilmetrics.Mixfile do
   def application do
     [mod: {ElugspMilmetrics, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :elixometer]]
   end
 
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -30,7 +30,13 @@ defmodule ElugspMilmetrics.Mixfile do
       {:phoenix_html, "~> 2.4"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.9"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:elixometer, github: "pinterest/elixometer"},
+      {:exometer_influxdb, github: "travelping/exometer_influxdb"},
+      ### FIXME HACK malditos overrides
+      {:exometer_core, "~> 1.0", override: true},
+      {:lager, "3.0.2", override: true},
+      {:hackney, "~> 1.4.4", override: true}
     ]
   end
 
